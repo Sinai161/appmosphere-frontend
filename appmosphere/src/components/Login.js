@@ -16,20 +16,24 @@ const handleChange = (e) => {
     setForm({...form, [e.target.name]: e.target.value})
 }
 return (
+    <div className="flex items-center justify-center
+    min-h-screen">
+    <form className="main bg-white rounded-lg shadow-md p-10 
+    transition-transform w-96 text-center" onSubmit={handleSubmit}>
     <div>
-    <div>
-      <h1 >Log In</h1>
-    </div>
-    <form onSubmit={handleSubmit}>
-    <div>
-        <label htmlFor="username"/>
-        <input type="text" name="username" placeholder="Username" onChange={handleChange}/>
+    <h1 className="text-2xl" >Log In</h1>
+        <label class="block mt-4 mb-2 text-lef
+            t text-gray-700 font-bold" htmlFor="username"/>
+            Username :
+        <input type="text" name="username" onChange={handleChange}/>
     </div>
     <div>                
-        <label htmlFor="password"/>
-        <input type="password" name="password" placeholder="Password" onChange={handleChange}/>
+        <label class="block mt-4 mb-2 text-lef
+            t text-gray-700 font-bold" htmlFor="password"/>
+            Password :
+        <input type="password" name="password" onChange={handleChange}/>
     </div>
-        <button type="submit" className="popup-button" value="Login">Submit</button>
+        <button type="submit" value="Login">Submit</button>
     </form>
         {errorMsg ? <h4 style={{color: "red"}}>{errorMsg}</h4> : ""}
     </div>

@@ -13,30 +13,35 @@ const Register = (props) => {
     }
 
   return (
-    <div>
-        <div>
-        <h1>Register</h1>
-        </div>
-        <form onSubmit={handleSubmit}>
-            <div>
-                <label htmlFor="username"/>
-                <input type="text" name="username" placeholder="Username" onChange={handleChange}/>
-            </div>
-            <div>
-                <label htmlFor="email"/>
-                <input type="email" name="email" placeholder="Email" onChange={handleChange}/>
-            </div>
-            <div>
-                <label htmlFor="password"/>
-                <input type="password" name="password" autoComplete="true" placeholder="Password" onChange={handleChange}/>
-            </div>
-            <div>
-                <label htmlFor="password2"/>
-                <input type="password2" name="password2" autoComplete="true" placeholder="Password2" onChange={handleChange}/>
-            </div>
+        <div className="flex items-center justify-center
+    min-h-screen">
+        <form className="main bg-white rounded-lg shadow-md p-10 
+    transition-transform w-96 text-center" onSubmit={handleSubmit}>
+        <h1 className="text-2xl">Register</h1>
+                <label className="block mt-4 mb-2 text-lef
+            t " htmlFor="username">
+                Username :
+                <input type="text" name="username" onChange={handleChange}/>
+                </label>
+                <label className="block mt-4 mb-2 text-lef
+            t " htmlFor="email">
+                Email :
+                <input type="email" name="email" onChange={handleChange}/>
+                </label>
+                <label className="block mt-4 mb-2 text-lef
+            t " htmlFor="password">
+                Password :
+                <input type="password" name="password" autoComplete="true"  onChange={handleChange}/>
+                </label>
+                <label className="block mt-4 mb-2 text-lef
+            t " htmlFor="password2">
+                Password2 :
+                <input type="password2" name="password2" autoComplete="true"  onChange={handleChange}/>
+                </label>
             <button type="submit" className="popup-button" value="Login">Submit</button>
         </form>
-    </div>
+        </div>
+
   )
 }
 
