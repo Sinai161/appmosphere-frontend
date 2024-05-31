@@ -12,7 +12,7 @@ function App() {
 
     const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem("authToken"))
     const navigate = useNavigate()
-    const URL = "http://localhost:8000/"
+    const URL = process.env.REACT_APP_URL
 
     const handleLogin = async (user) => {
       const response = await fetch(URL + "api/login", {
