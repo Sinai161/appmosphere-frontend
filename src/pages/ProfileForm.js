@@ -12,7 +12,8 @@ const ProfileForm = (props) => {
     })
 
     const handleInput = (event) => {
-        setProfile({...profile, [event.target.name]: event.target.event})
+        console.log("TARGET", event.target.value)
+        setProfile({[event.target.name]: event.target.value})
     }
 
     function handleSubmit(event) {
@@ -37,7 +38,7 @@ return (
     <div className="flex items-center justify-center">
                 <form  onSubmit={handleSubmit}>
                 <h2 className="text-2xl">Create Profile</h2>
-                    <field className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                    <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                         <input
                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             type="text"
@@ -46,29 +47,29 @@ return (
                             onChange={handleInput}
                             placeholder="username"
                         />
-                    </field>
-                    <field >
+                    </label>
+                    <label>
                         <input
                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             type="text"
-                            name="song"
+                            name="img"
                             value={profile.img}
                             onChange={handleInput}
                             placeholder="img"
                         />
-                    </field>
-                    <field>
+                    </label>
+                    <label>
                         <input
                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             type="text"
-                            name="releaseDate"
+                            name="bio"
                             value={profile.bio}
                             onChange={handleInput}
                             placeholder="bio"
                             />
-                    </field>
-                    <button  type="submit">Submit</button>
-                    <button onClick={handleCancel}  >Cancel</button>
+                    </label>
+                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"  type="submit">Submit</button>
+                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" onClick={handleCancel}  >Cancel</button>
                 </form>
     </div>
     )

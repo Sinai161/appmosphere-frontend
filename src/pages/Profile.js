@@ -50,16 +50,14 @@ const Profile = (props) => {
                     <button onClick={handleFollow} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Follow</button>
                 </div>
             ))}
-            <div>
+            <div></div>
             {feed.map((feed) => (
                 <div key={feed.id}>
                     <img className="rounded-full" src={feed.img} alt="profile-pc" style={{ width: "30%" }} />
                 </div>
             ))}
-            </div>
             
         </div>
-
     )
 
 
