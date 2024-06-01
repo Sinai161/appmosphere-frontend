@@ -3,26 +3,26 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const FeedForm = () => {
+    const URL = process.env.REACT_APP_URL
     const token = localStorage.getItem("authToken");
     const [feed, setFeed] = useState({
         img: ""
     })
 
     const handleInput = (event) => {
-        // console.log("TARGET", event.target.value)
         setFeed({ [event.target.name]: event.target.value })
     }
 
     function handleSubmit(event) {
         event.preventDefault()
-        axios.post("http://localhost:8000/api/feed", { feed },
+        axios.post(`${URL}feed`, { feed },
             {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
             })
-            .then(response => console.log("res",response))
-            .catch(err => console.log("err",err))
+            .then(response => console.log("res", response))
+            .catch(err => console.log("err", err))
     }
 
     const navigate = useNavigate()

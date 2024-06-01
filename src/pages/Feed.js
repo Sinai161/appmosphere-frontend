@@ -1,13 +1,14 @@
 import axios from 'axios';
-import { useState, useEffect, } from 'react';
+import { useState, useEffect, useCallback, } from 'react';
 const Feed = () => {
     const [feed, setFeed] = useState([])
     const token = localStorage.getItem("authToken");
     const [user, setUser] = useState(null);
+    const URL = process.env.REACT_APP_URL
 
     const fetchUser = async (id) => {
         if (token) {
-            const response = await axios.get(`http://localhost:8000/api/user/${id}`, {
+            const response = await axios.get(`${URL}user/${id}`, {
                 headers: {
                     "Content-Type": "application/json",
                     "authorization": `Bearer ${token}`
@@ -22,7 +23,7 @@ const Feed = () => {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get("http://localhost:8000/api/feed",
+            const response = await axios.get(`${URL}feed`,
                 {
                     headers: {
                         'Authorization': `Bearer ${token}`
@@ -34,9 +35,9 @@ const Feed = () => {
         }
     }
 
-    const addFollow = async (id) => {
+    const addFollow = useCallback(async (id) => {
         if (token) {
-            const response = await axios.post(`http://localhost:8000/api/follow/${id}`, {}, {
+            const response = await axios.post(`${URL}follow/${id}`, {}, {
                 headers: {
                     "Content-Type": "application/json",
                     "authorization": `Bearer ${token}`
@@ -47,6 +48,7 @@ const Feed = () => {
             console.log("no token");
         }
     }
+        , [])
 
     const createFollowButton = (id) => {
         if (user && user.user && user.user._id !== feed.user) {

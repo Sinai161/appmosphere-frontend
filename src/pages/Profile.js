@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
-// prop = {User:"string-userId"}
+
 const Profile = (props) => {
+    const URL = process.env.REACT_APP_URL
     const [profile, setProfile] = useState([])
     const [feed, setFeed] = useState([])
 
@@ -9,7 +10,7 @@ const Profile = (props) => {
 
     const fetchData = async () => {
         try {
-            const url = props.User ? `http://localhost:8000/api/profile/${props.User}` : "http://localhost:8000/api/profile"
+            const url = props.User ? `${URL}profile/${props.User}` : `${URL}profile`
             console.log("URL", url)
             const response = await axios.get(url,
                 {
