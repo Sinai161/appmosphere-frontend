@@ -4,15 +4,7 @@ import axios from 'axios';
 const Profile = (props) => {
     const [profile, setProfile] = useState([])
     const [feed, setFeed] = useState([])
-    const [user, setUser] = useState(null);
 
-    const handleFollow = () => {
-      axios.post()
-        .then(res => {
-          setUser({ ...user, followers: [...user.followers, props.User] });
-  })
-  .catch(err => console.log(err));
-  }
     const token = localStorage.getItem("authToken");
 
     const fetchData = async () => {
@@ -47,7 +39,6 @@ const Profile = (props) => {
                     <img className="rounded-full" src={profile.img} alt="profile-pc" style={{ width: "30%" }} />
                     <div>{profile.bio}</div>
                     <div>{profile.followers}</div>
-                    <button onClick={handleFollow} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Follow</button>
                 </div>
             ))}
             <div></div>

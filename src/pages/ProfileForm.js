@@ -3,17 +3,16 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 // Ref. from Unit 3 React
-const ProfileForm = (props) => {
+const ProfileForm = () => {
     const token = localStorage.getItem("authToken");
     const [profile, setProfile] = useState({
-        username:"",
-        img:"",
-        bio:""
+        username: "",
+        img: "",
+        bio: ""
     })
 
     const handleInput = (event) => {
-        console.log("TARGET", event.target.value)
-        setProfile({[event.target.name]: event.target.value})
+        setProfile({...profile, [event.target.name]: event.target.value})
     }
 
     function handleSubmit(event) {
